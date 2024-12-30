@@ -1,29 +1,27 @@
 #include<stdio.h>
-struct sample_t {
-	char first;
-	char second;
-	char third;
-	short fourth;
+#include<string.h>
+struct Book
+{
+	char title[30];
+	char author[30];
+	int year;
+	int price;
 };
-void print_size(struct sample_t* var) 
+int main()
 {
-	printf("Size: %lu bytes\n", sizeof(*var));
-}
-void print_bytes(struct sample_t* var) 
-{
-	unsigned char* ptr = (unsigned char*)var;
-	for (int i = 0; i < sizeof(*var); i++, ptr++) 
-		printf("%d ", (unsigned int)*ptr);
+	struct Book books[3];
 
-		printf("\n");
+	char B[20];
+	for(int i=0;i<3;i++)
+	{
+		scanf(" %[^\n]",B);
+		strcpy(books[i].title,B);  
+	}
+	printf("%s\n",books[1].title);
 }
-int main(int argc, char** argv) 
-{
-	struct sample_t var;
-	var.first = 'A';
-	var.second = 'B';
-	var.third = 'C';
-	var.fourth = 765;
-	print_size(&var);
-	print_bytes(&var);
-}
+/*Fight Club
+The Silent patient
+Sky Fall
+
+Output: The Silent patient*/
+
